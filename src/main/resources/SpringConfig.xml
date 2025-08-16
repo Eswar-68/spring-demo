@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+        <bean id="student" class="org.example.Student" autowire="constructor">
+            <!--looks inside the constructor for any line that need an object and check by type-->
+            <!--<constructor-arg index="0" ref="pencil"/>-->
+            <constructor-arg index="1" value="22"/>
+            <constructor-arg index="2" value="Eswar"/>
+        </bean>
+
+        <bean id="student1" class="org.example.Student">
+            <constructor-arg index="0" ref="pencil"/>
+            <constructor-arg index="1" value="22"/>
+            <constructor-arg index="2" value="Pandiyan"/>
+        </bean>
+
+        <!--looks inside the entire class-->
+        <bean id="hod" class="org.example.HOD" autowire="byType"/>
+
+
+        <bean id="teacher" class="org.example.Teacher" autowire="byName"/>
+        <bean id="writer" class="org.example.Pen"/>
+
+        <bean id="pen" class="org.example.Pen" primary="true"/>
+        <bean id="pencil" class="org.example.Pencil"/>
+
+</beans>
